@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import IndexPage from './pages/index.jsx';
-import './pages/index.css';
+import LoginRegister from './pages/loginregister.jsx';
+import './index.css'
 
 ReactDOM.createRoot(document.getElementById('app')).render(
     <React.StrictMode>
-        <IndexPage />
+        <LoginRegister />
     </React.StrictMode>
 );
