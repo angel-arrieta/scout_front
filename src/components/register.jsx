@@ -1,18 +1,25 @@
 import React, {useState} from 'react';
+import { register } from "../service/authService.js";
 import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
 
 const Register = () => {
-    const [form, setForm] = useState({ name: "", email: "", password: "" });
+    const [form, setForm] = useState({ fullName: "", email: "", password: "" });
     const [error, setError] = useState("");
 
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!form.name || !form.email || !form.password) {
+        if (!form.fullName || !form.email || !form.password) {
             setError("Todos los campos son obligatorios.");
             return;
         }
         setError("");
-        console.log("Registro enviado", form);
+        try {
+            await register(form);
+            alert('Registrado correctamente');
+        } catch (error) {
+            alert('Error al registrar');
+            console.error(error);
+        }
     };
 
     return (
@@ -25,8 +32,8 @@ const Register = () => {
                     type="text"
                     placeholder="Nombre completo"
                     className="w-full outline-none"
-                    value={form.name}
-                    onChange={e => setForm({ ...form, name: e.target.value })}
+                    value={form.fullName}
+                    onChange={e => setForm({ ...form, fullName: e.target.value })}
                 />
             </div>
 

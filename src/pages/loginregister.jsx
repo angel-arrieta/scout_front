@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { FaSignInAlt, FaUserPlus } from "react-icons/fa";
-import Login from '../components/Login';
-import Register from '../components/Register';
+import Login from '../components/login.jsx';
+import Register from '../components/register.jsx';
 
 const LoginRegister = () => {
     const [showLogin, setShowLogin] = useState(true);

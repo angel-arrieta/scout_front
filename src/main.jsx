@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import LoginRegister from './pages/loginregister.jsx';
+import { RouterProvider } from "react-router-dom";
+import { Router } from "./router.jsx";
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('app')).render(
     <React.StrictMode>
-        <LoginRegister />
+        <RouterProvider router={Router} />
     </React.StrictMode>
 );

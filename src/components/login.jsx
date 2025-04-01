@@ -1,18 +1,27 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { FaEnvelope, FaLock } from "react-icons/fa";
+import { login} from "../service/authService.js";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [form, setForm] = useState({ email: "", password: "" });
     const [error, setError] = useState("");
+    const navigate = useNavigate();
 
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (!form.email || !form.password) {
             setError("Por favor, completa todos los campos.");
             return;
         }
         setError("");
-        console.log("Login enviado", form);
+        try {
+            await login(form);
+            navigate("/logged")
+        } catch (error) {
+            alert('Error al iniciar sesión');
+            console.error(error);
+        }
     };
 
     return (
