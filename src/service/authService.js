@@ -11,6 +11,9 @@ export const login = async (userData) => {
     const res = await axios.post(`${API_URL}/login`, userData);
     if (res.data.token) {
         localStorage.setItem('token', res.data.token);
+        // Suponiendo que expiresIn es el tiempo de vida en milisegundos
+        const expirationDate = Date.now() + Number(res.data.expiresIn);
+        localStorage.setItem('expiresIn', expirationDate)
     }
     return res.data;
 };

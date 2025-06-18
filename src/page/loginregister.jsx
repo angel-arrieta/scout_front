@@ -1,12 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { FaSignInAlt, FaUserPlus } from "react-icons/fa";
-import Login from '../components/login.jsx';
-import Register from '../components/register.jsx';
+import Login from '../component/login.jsx';
+import Register from '../component/register.jsx';
 
 const LoginRegister = () => {
     const [showLogin, setShowLogin] = useState(true);
-
     return (
         <div className="min-h-screen bg-white text-white flex items-center justify-center">
             <div className="w-full max-w-md bg-purple-600 rounded-xl shadow-lg p-6 relative overflow-hidden">

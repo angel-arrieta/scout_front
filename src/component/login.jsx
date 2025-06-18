@@ -17,7 +17,7 @@ const Login = () => {
         setError("");
         try {
             await login(form);
-            navigate("/logged")
+            navigate("/panel")
         } catch (error) {
             alert('Error al iniciar sesión');
             console.error(error);
